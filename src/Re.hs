@@ -4,8 +4,6 @@ module Re (
 
 import Data.Char
 
-import Re.Internal.Scanner
-
 data OpCode = OpChar Char
             | OpMatch
             | OpJmp Int
