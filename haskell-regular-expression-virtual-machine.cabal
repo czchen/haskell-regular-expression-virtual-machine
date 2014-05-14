@@ -3,20 +3,24 @@
 -- http://haskell.org/cabal/users-guide/
 
 name:                haskell-regular-expression-virtual-machine
-version:             0.0.1
+version:             0.0.0
 -- synopsis:
 -- description:
 homepage:            https://github.com/czchen/haskell-regular-expression-virtual-machine
 license:             MIT
 license-file:        LICENSE
-author:              ChangZhuo Chen (陳昌倬)
-maintainer:          czchen@gmail.com
--- copyright:
--- category:
+author:              ChangZhuo Chen (陳昌倬) <czchen@gmail.com>
 build-type:          Simple
 cabal-version:       >=1.8
 
 library
+  hs-source-dirs:      src
   exposed-modules:     Re
-  -- other-modules:
-  build-depends:       base ==4.6.*
+  build-depends:       base == 4.*
+
+-- test-suite spec
+--   type:                exitcode-stdio-1.0
+--   hs-source-dirs:      test
+--   main-is:             Spec.hs
+--   build-depends:       base == 4.*
+--                ,       hspec >= 1.3
