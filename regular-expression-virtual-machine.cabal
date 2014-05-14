@@ -17,6 +17,7 @@ library
   hs-source-dirs:      src
   exposed-modules:     Re
                  ,     Re.Internal.Scanner
+                 ,     Re.Internal.Parser
   build-depends:       base == 4.*
 
 test-suite spec
