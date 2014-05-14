@@ -18,9 +18,10 @@ library
   exposed-modules:     Re
   build-depends:       base == 4.*
 
--- test-suite spec
---   type:                exitcode-stdio-1.0
---   hs-source-dirs:      test
---   main-is:             Spec.hs
---   build-depends:       base == 4.*
---                ,       hspec >= 1.3
+test-suite spec
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       base == 4.*
+               ,       hspec >= 1.3
+               ,       haskell-regular-expression-virtual-machine

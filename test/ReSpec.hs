@@ -1,5 +1,7 @@
 module ReSpec where
 
+import Test.Hspec
+
 import Re
 
 spec :: Spec
