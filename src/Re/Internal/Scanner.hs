@@ -28,6 +28,14 @@ tokenize input =
                 else
                     case input!!pos of
                         '?' -> tokenizeIterValue ZeroOrOne (pos + 1) res
+                        '*' -> tokenizeIterValue ZeroOrMore (pos + 1) res
+                        '+' -> tokenizeIterValue OneOrMore (pos + 1) res
+                        '(' -> tokenizeIterValue OpenParenthesis (pos + 1) res
+                        ')' -> tokenizeIterValue CloseParenthesis (pos + 1) res
+                        '|' -> tokenizeIterValue Alternative (pos + 1) res
+                        '\\' ->
+                            if pos + 1 >= length input then Left $ "Escape error at pos " ++ show(pos)
+                            else tokenizeIterValue (Simple $ input!!(pos + 1)) (pos + 2) res
                         _ -> tokenizeIterValue (Simple $ input!!pos) (pos + 1) res
 
     in
