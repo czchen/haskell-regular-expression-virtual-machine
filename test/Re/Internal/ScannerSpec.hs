@@ -10,6 +10,9 @@ spec = do
         it "Simple Char" $ do
             tokenize "abcde" `shouldBe` (Right [Simple 'a', Simple 'b', Simple 'c', Simple 'd', Simple 'e'])
 
+        it "AnyChar" $ do
+            tokenize "a." `shouldBe` (Right [Simple 'a', AnyChar])
+
         it "ZeroOrOne" $ do
             tokenize "a?" `shouldBe` (Right [Simple 'a', ZeroOrOne])
 

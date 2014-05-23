@@ -4,6 +4,7 @@ module Re.Internal.Scanner
 ) where
 
 data Token = Simple Char
+           | AnyChar
            | ZeroOrOne
            | ZeroOrMore
            | OneOrMore
@@ -26,6 +27,7 @@ tokenize input =
                     '(' -> tokenizeIterValue OpenParenthesis (pos + 1) res
                     ')' -> tokenizeIterValue CloseParenthesis (pos + 1) res
                     '|' -> tokenizeIterValue Alternative (pos + 1) res
+                    '.' -> tokenizeIterValue AnyChar (pos + 1) res
                     '\\' ->
                         if pos + 1 >= length input then Left $ "Escape error at pos " ++ show(pos)
                         else tokenizeIterValue (Simple $ input!!(pos + 1)) (pos + 2) res
